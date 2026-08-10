@@ -238,9 +238,7 @@ class Blob(mock.MagicMock):
         """Returns the HTTP Content-Type header."""
         return self._metadata.content_type
 
-    def _get_local_path(
-        self, readable: bool = False, writable: bool = False
-    ) -> pathlib.Path:
+    def _get_local_path(self, readable: bool = False, writable: bool = False) -> pathlib.Path:
         """Returns the local path of this blob."""
         mount = self._env.get_mount(self._bucket.name)
 
@@ -429,9 +427,7 @@ def patch(
     with contextlib.ExitStack() as stack:
         for name in client_cls_names:
             mocked = stack.enter_context(mock.patch(name))
-            mocked.side_effect = lambda *args, **kwargs: Client(
-                *args, _env=env, **kwargs
-            )
+            mocked.side_effect = lambda *args, **kwargs: Client(*args, _env=env, **kwargs)
 
         for name in bucket_cls_names:
             mocked = stack.enter_context(mock.patch(name))

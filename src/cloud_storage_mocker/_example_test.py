@@ -19,9 +19,7 @@ def test_something(tmp_path: pathlib.Path) -> None:
     (src_dir / "hello.txt").write_text("Hello.")
     # Optionally, object metadata can also be specified by the file beside the
     # content, suffixed by ".__metadata__".
-    (src_dir / "hello.txt.__metadata__").write_text(
-        BlobMetadata(content_type="text/plain").dump_json()
-    )
+    (src_dir / "hello.txt.__metadata__").write_text(BlobMetadata(content_type="text/plain").dump_json())
 
     # Mounts directories. Empty list is allowed if no actual access is required.
     with gcs_patch(

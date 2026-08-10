@@ -71,8 +71,12 @@ packages = ["src/cloud_storage_mocker"]
 path = "src/cloud_storage_mocker/_version.py"
 
 [tool.flake8]
-max-line-length = 88
+max-line-length = 110
 extend-ignore = "E203"
+
+[tool.black]
+line-length = 110
+target-version = ["py38", "py39", "py310", "py311", "py312", "py313", "py314"]
 
 [tool.isort]
 profile = "black"
