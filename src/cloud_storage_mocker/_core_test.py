@@ -250,9 +250,7 @@ def test__blob__upload_from_string__nested(tmp_path: pathlib.Path) -> None:
 def test__blob__cache_control(tmp_path: pathlib.Path) -> None:
     src_dir, dest_dir = _prepare_dirs(tmp_path)
     (src_dir / "foo.txt").write_text("Hello.")
-    (src_dir / "foo.txt.__metadata__").write_text(
-        BlobMetadata(cache_control="max-age=86400").dump_json()
-    )
+    (src_dir / "foo.txt.__metadata__").write_text(BlobMetadata(cache_control="max-age=86400").dump_json())
 
     with patch([Mount("readable", src_dir, readable=True)]):
         blob = google.cloud.storage.Client().bucket("readable").blob("foo.txt")
@@ -264,9 +262,7 @@ def test__blob__cache_control(tmp_path: pathlib.Path) -> None:
 def test__blob__content_disposition(tmp_path: pathlib.Path) -> None:
     src_dir, dest_dir = _prepare_dirs(tmp_path)
     (src_dir / "foo.txt").write_text("Hello.")
-    (src_dir / "foo.txt.__metadata__").write_text(
-        BlobMetadata(content_disposition="inline").dump_json()
-    )
+    (src_dir / "foo.txt.__metadata__").write_text(BlobMetadata(content_disposition="inline").dump_json())
 
     with patch([Mount("readable", src_dir, readable=True)]):
         blob = google.cloud.storage.Client().bucket("readable").blob("foo.txt")
@@ -278,9 +274,7 @@ def test__blob__content_disposition(tmp_path: pathlib.Path) -> None:
 def test__blob__content_encoding(tmp_path: pathlib.Path) -> None:
     src_dir, dest_dir = _prepare_dirs(tmp_path)
     (src_dir / "foo.txt").write_text("Hello.")
-    (src_dir / "foo.txt.__metadata__").write_text(
-        BlobMetadata(content_encoding="gzip").dump_json()
-    )
+    (src_dir / "foo.txt.__metadata__").write_text(BlobMetadata(content_encoding="gzip").dump_json())
 
     with patch([Mount("readable", src_dir, readable=True)]):
         blob = google.cloud.storage.Client().bucket("readable").blob("foo.txt")
@@ -292,9 +286,7 @@ def test__blob__content_encoding(tmp_path: pathlib.Path) -> None:
 def test__blob__content_language(tmp_path: pathlib.Path) -> None:
     src_dir, dest_dir = _prepare_dirs(tmp_path)
     (src_dir / "foo.txt").write_text("Hello.")
-    (src_dir / "foo.txt.__metadata__").write_text(
-        BlobMetadata(content_language="en-US").dump_json()
-    )
+    (src_dir / "foo.txt.__metadata__").write_text(BlobMetadata(content_language="en-US").dump_json())
 
     with patch([Mount("readable", src_dir, readable=True)]):
         blob = google.cloud.storage.Client().bucket("readable").blob("foo.txt")
@@ -306,9 +298,7 @@ def test__blob__content_language(tmp_path: pathlib.Path) -> None:
 def test__blob__content_type(tmp_path: pathlib.Path) -> None:
     src_dir, dest_dir = _prepare_dirs(tmp_path)
     (src_dir / "foo.txt").write_text("Hello.")
-    (src_dir / "foo.txt.__metadata__").write_text(
-        BlobMetadata(content_type="text/plain").dump_json()
-    )
+    (src_dir / "foo.txt.__metadata__").write_text(BlobMetadata(content_type="text/plain").dump_json())
 
     with patch([Mount("readable", src_dir, readable=True)]):
         blob = google.cloud.storage.Client().bucket("readable").blob("foo.txt")
