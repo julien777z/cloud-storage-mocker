@@ -33,7 +33,7 @@ jobs:
         with:
           python-version: "3.11"
       - name: Install dependencies
-        run: python -m pip install black
+        run: python -m pip install '.[dev]'
       - name: Check
         run: python -m black -v --check src
 
@@ -46,7 +46,7 @@ jobs:
         with:
           python-version: "3.11"
       - name: Install dependencies
-        run: python -m pip install pyproject-flake8
+        run: python -m pip install '.[dev]'
       - name: Check
         run: pflake8 -v src
 
@@ -59,7 +59,7 @@ jobs:
         with:
           python-version: "3.11"
       - name: Install dependencies
-        run: python -m pip install isort
+        run: python -m pip install '.[dev]'
       - name: Check
         run: python -m isort --check src
 
